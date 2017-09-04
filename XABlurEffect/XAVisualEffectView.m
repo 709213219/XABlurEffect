@@ -83,7 +83,6 @@
             [self effectWithBarStyle:UIBarStyleBlack];
         }
             break;
-            break;
         case XABlurEffectStyleRegular: {
             [self effectWithBarStyle:UIBarStyleDefault];
         }
