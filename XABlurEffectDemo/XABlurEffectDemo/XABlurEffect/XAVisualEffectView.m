@@ -83,7 +83,6 @@
             [self effectWithBarStyle:UIBarStyleBlack];
         }
             break;
-            break;
         case XABlurEffectStyleRegular: {
             [self effectWithBarStyle:UIBarStyleDefault];
         }
@@ -110,15 +109,19 @@
     [self addSubview:toolBar];
     
     _toolBar = toolBar;
+    
+    [self setLayoutConstraints];
 }
 
-#pragma mark - frame
-- (void)setFrame:(CGRect)frame {
-    [super setFrame:frame];
+#pragma mark - Layout
+- (void)setLayoutConstraints {
+    _toolBar.translatesAutoresizingMaskIntoConstraints = NO;
     
-    if (_toolBar && [_toolBar isKindOfClass:[UIView class]]) {
-        _toolBar.frame = (CGRect){{0,0},frame.size};
-    }
+    NSLayoutConstraint *topConstraint = [NSLayoutConstraint constraintWithItem:_toolBar attribute:NSLayoutAttributeTop relatedBy:NSLayoutRelationEqual toItem:self attribute:NSLayoutAttributeTop multiplier:1.0 constant:0];
+    NSLayoutConstraint *leftConstraint = [NSLayoutConstraint constraintWithItem:_toolBar attribute:NSLayoutAttributeLeft relatedBy:NSLayoutRelationEqual toItem:self attribute:NSLayoutAttributeLeft multiplier:1.0 constant:0];
+    NSLayoutConstraint *bottomConstraint = [NSLayoutConstraint constraintWithItem:_toolBar attribute:NSLayoutAttributeBottom relatedBy:NSLayoutRelationEqual toItem:self attribute:NSLayoutAttributeBottom multiplier:1.0 constant:0];
+    NSLayoutConstraint *rightConstraint = [NSLayoutConstraint constraintWithItem:_toolBar attribute:NSLayoutAttributeRight relatedBy:NSLayoutRelationEqual toItem:self attribute:NSLayoutAttributeRight multiplier:1.0 constant:0];
+    [self addConstraints:@[topConstraint, leftConstraint, bottomConstraint, rightConstraint]];
 }
 
 #pragma mark - NSSecureCoding
@@ -148,7 +151,7 @@ __asm(
       ".align          3\n"
       "L_OBJC_CLASS_UIVisualEffect:\n"
       ".quad           _OBJC_CLASS_$_UIVisualEffect\n"
-
+      
       ".align          3\n"
       "L_OBJC_CLASS_UIBlurEffect:\n"
       ".quad           _OBJC_CLASS_$_UIBlurEffect\n"
