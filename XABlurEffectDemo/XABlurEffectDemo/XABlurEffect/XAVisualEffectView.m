@@ -206,15 +206,15 @@ __attribute__((constructor)) static void XAVisualEffectViewPatchEntry(void) {
             __asm("movw %0, :lower16:(_OBJC_CLASS_UIVisualEffect-(LPC0+4))\n"
                   "movt %0, :upper16:(_OBJC_CLASS_UIVisualEffect-(LPC0+4))\n"
                   "LPC0: add %0, pc" : "=r"(visualEffect));
-            __asm("movw %0, :lower16:(_OBJC_CLASS_UIBlurEffect-(LPC0+4))\n"
-                  "movt %0, :upper16:(_OBJC_CLASS_UIBlurEffect-(LPC0+4))\n"
-                  "LPC0: add %0, pc" : "=r"(blurEffect));
-            __asm("movw %0, :lower16:(_OBJC_CLASS_UIVibrancyEffect-(LPC0+4))\n"
-                  "movt %0, :upper16:(_OBJC_CLASS_UIVibrancyEffect-(LPC0+4))\n"
-                  "LPC0: add %0, pc" : "=r"(vibrancyEffect));
-            __asm("movw %0, :lower16:(_OBJC_CLASS_UIVisualEffectView-(LPC0+4))\n"
-                  "movt %0, :upper16:(_OBJC_CLASS_UIVisualEffectView-(LPC0+4))\n"
-                  "LPC0: add %0, pc" : "=r"(visualEffectView));
+            __asm("movw %0, :lower16:(_OBJC_CLASS_UIBlurEffect-(LPC1+4))\n"
+                  "movt %0, :upper16:(_OBJC_CLASS_UIBlurEffect-(LPC1+4))\n"
+                  "LPC1: add %0, pc" : "=r"(blurEffect));
+            __asm("movw %0, :lower16:(_OBJC_CLASS_UIVibrancyEffect-(LPC2+4))\n"
+                  "movt %0, :upper16:(_OBJC_CLASS_UIVibrancyEffect-(LPC2+4))\n"
+                  "LPC2: add %0, pc" : "=r"(vibrancyEffect));
+            __asm("movw %0, :lower16:(_OBJC_CLASS_UIVisualEffectView-(LPC3+4))\n"
+                  "movt %0, :upper16:(_OBJC_CLASS_UIVisualEffectView-(LPC3+4))\n"
+                  "LPC3: add %0, pc" : "=r"(visualEffectView));
 #elif TARGET_CPU_ARM64
             __asm("adrp %0, L_OBJC_CLASS_UIVisualEffect@PAGE\n"
                   "add  %0, %0, L_OBJC_CLASS_UIVisualEffect@PAGEOFF" : "=r"(visualEffect));
